@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { TokenRefreshRequest, applyAuthTokenInterceptor } from 'react-native-axios-jwt';
 import { API_URL } from 'global/config';
-import { API_ROUTES } from 'global/constants';
+import API_ROUTES from 'global/constants/apiRoutes';
 
 // 1. Create an axios instance that you wish to apply the interceptor to
+
 export const axiosInstance = axios.create({
   baseURL: 'https://sevenshop.herokuapp.com',
   headers: {
-    // Authorization: `Bearer ${token}`,
+    // Authorization: `Bearer ${user.access_token}`,
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },

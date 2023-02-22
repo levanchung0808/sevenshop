@@ -76,7 +76,7 @@ export const MainScreen = () => {
       const response = await authAPI.getProduct();
       result = response.data.result;
       Toast.show({
-        title: response.data.result[0].name,
+        title: response.data.result.name,
         duration: 3000,
       });
     } catch (e: any) {

@@ -63,3 +63,9 @@ export type GetCartSuccessData = {
     }
   ];
 };
+
+export type GetProductData = {
+  name: string;
+  price: number;
+  quantity: number;
+};

@@ -5,8 +5,7 @@ import {
   RefreshTokenPayload,
   SignInPayload,
   GetMeSuccessData,
-  GetProductSuccessData,
-  GetCartSuccessData,
+  GetProductData,
 } from 'interfaces/Auth';
 import { axiosInstance } from './config/AxiosInstance';
 
@@ -23,22 +22,15 @@ const authAPI = {
     }
     return response;
   },
-  async me(): TypeReturn<GetMeSuccessData> {
-    const result = await axiosInstance.get(API_ROUTES.me);
-    return result;
+  me() {
+    return axiosInstance.get(API_ROUTES.me);
   },
-
   logout(payload: RefreshTokenPayload): TypeReturn<null> {
     return axiosInstance.post(API_ROUTES.logout, payload);
   },
 
-  async getProduct(): TypeReturn<GetProductSuccessData> {
+  async getProduct(): TypeReturn<GetProductData> {
     const result = await axiosInstance.get(API_ROUTES.getProducts);
-    return result;
-  },
-
-  async getCart(): TypeReturn<GetCartSuccessData> {
-    const result = await axiosInstance.get(API_ROUTES.getCart);
     return result;
   },
 };

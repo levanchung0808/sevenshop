@@ -40,6 +40,7 @@
     "react-native-device-info": "^10.4.0",
     "react-native-dotenv": "^3.4.7",
     "react-native-feather": "^1.1.2",
+    "react-native-format-currency": "^0.0.3",
     "react-native-pager-view": "6.0.1",
     "react-native-progress": "^5.0.0",
     "react-native-ratings": "^8.1.0",

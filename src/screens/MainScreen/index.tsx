@@ -15,11 +15,13 @@ export const MainScreen = () => {
   const navigation = useNavigation<AppNavigationProp>();
   const [Data1, setData1] = useState([]);
   const [scrollEnable, setScrollEnable] = useState(false);
-  // const [formData, setData] = useState<SignInPayload>({
-  //   email: '',
-  //   password: '',
-  // });
   const [isLoader, setIsLoader] = useState(false);
+  const [formData, setData] = useState<SignInPayload>({
+    email: 'quyentran.02062000@gmail.com',
+    password: '123',
+  });
+  const [isLoaddingItemFY, setIsLoaddingItemFY] = useState(false);
+  // const [refreshScroll, setrefreshScroll] = useState(false);
   let yOffset = '';
 
   // const onSubmit = async () => {
@@ -48,6 +50,7 @@ export const MainScreen = () => {
         duration: 3000,
       });
     }
+    // console.log(result.skip(1).limit(1));
     setData1(result);
   };
 
@@ -66,7 +69,8 @@ export const MainScreen = () => {
   useEffect(() => {
     // onSubmit();
     getProducts();
-    setIsLoader(true);
+    setIsLoaddingItemFY(true);
+    // setIsLoaddingItemCategory(true);
 
     // setData({ email: 'quyentran.02062000@gmail.com', password: '123' });
     // console.log(deviceId);
@@ -79,6 +83,10 @@ export const MainScreen = () => {
   //     }, 1000);
   //   }
   // }, [isLoader]);
+  // type State = {
+  //   page: number;
+  //   // data: [];
+  // };
 
   return (
     <View style={styles.container}>
@@ -115,17 +123,32 @@ export const MainScreen = () => {
         <View>
           <View>
             <SlideShowImage style={{}} />
-
-            <FlatListProductCategory data={Data1} />
-
+            <FlatListProductCategory
+              data={Data1}
+              // onEndReadChy={() => {
+              //   setIsLoaddingItemCategory(true);
+              //   setTimeout(() => {
+              //     setIsLoaddingItemCategory(false);
+              //   }, 1000);
+              // }}
+              // ListFooterComponent={() =>
+              //   isLoaddingItemCategory ? (
+              //     <View>
+              //       <ActivityIndicator />
+              //     </View>
+              //   ) : (
+              //     <View></View>
+              //   )
+              // }
+            />
             <FlatListProductFlashSale />
           </View>
           <FlatListProductForYou
             data={Data1}
             footer={
-              isLoader ? (
-                <View>
-                  <ActivityIndicator />
+              isLoaddingItemFY ? (
+                <View style={{ marginVertical: 50 }}>
+                  <ActivityIndicator size={30} />
                 </View>
               ) : (
                 <View></View>

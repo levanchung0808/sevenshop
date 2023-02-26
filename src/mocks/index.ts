@@ -10,7 +10,7 @@ export type Item = {
   categories: number;
 };
 
-export const DATA: Item[] = [
+export const DATA = [
   {
     id: '1',
     name: 'Michael Scottshhhhhhhhhsdddddddddddđ',

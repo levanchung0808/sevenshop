@@ -5,7 +5,7 @@ import * as Icon from 'react-native-feather';
 type Props = {
   onPressCart: Function;
   onPressSearch: Function;
-  quantityItems: string;
+  quantityItems: number;
 };
 
 const IconCart = (props: Props) => {

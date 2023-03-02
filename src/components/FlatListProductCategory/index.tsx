@@ -7,16 +7,12 @@ import * as Progress from 'react-native-progress';
 import ButtonCategory from 'components/ButtonCategory';
 import ItemProductCategory from 'components/ItemProductCategory';
 import { GetProductSuccessData } from 'interfaces/Auth';
-// import { AppNavigationProp } from 'providers/navigation/types';
 import styles from './styles';
 
 type Props = {
   data: GetProductSuccessData[];
-  // onEndReadChy: any;
-  // ListFooterComponent: any;
 };
 const FlatListProductCategory = (props: Props) => {
-  // const navigation = useNavigation<AppNavigationProp>();
   const { data } = props;
   const [ItemSelected, setItemSelected] = useState([
     {
@@ -55,12 +51,9 @@ const FlatListProductCategory = (props: Props) => {
       isSelected: false,
     },
   ]);
-  // const [isLoaddingItemCategory, setIsLoaddingItemCategory] = useState(false);
 
   const [progressEnable, setProgressEnable] = useState(true);
-  // const [data1, setdata1]: any = useState([]);
-  // const [start, setStart] = useState(0);
-  const [end, setEnd] = useState(1);
+  const [end, setEnd] = useState(3);
 
   const id_Category: any = () => {
     let category;
@@ -69,34 +62,15 @@ const FlatListProductCategory = (props: Props) => {
         return (category = item._id);
       }
     });
+    // console.log('categoryyyyyyyy' + category);
     return category;
   };
   useEffect(() => {
-    // setdata1(
-    //   data
-    //     .filter(function (item) {
-    //       return item.categories_type === id_Category();
-    //     })
-    //     .slice(0, 1)
-    // );
     setInterval(() => {
       setProgressEnable(false);
     }, 3000);
   }, [id_Category()]);
 
-  // useEffect(() => {
-  //   set
-  // }, [isLoaddingItemCategory]);
-
-  // const setTimeLoad = () => {
-  //   // setIsLoaddingItemCategory(true);
-  //   let varibale: any;
-  //   setTimeout(() => setIsLoaddingItemCategory(false), 1000);
-  //   // setTimeout(() => setIsLoaddingItemCategory(true), 1000);
-
-  //   // console.log(isLoaddingItemCategory);
-  //   // setTimeout(() => clearTimeout(varibale), 1000);
-  // };
   const RenderItemCategory = ({ data }: { data: GetProductSuccessData }) => {
     return (
       <ItemProductCategory
@@ -147,30 +121,19 @@ const FlatListProductCategory = (props: Props) => {
               showsHorizontalScrollIndicator={false}
               horizontal
               contentContainerStyle={styles.flashListFlashSale}
-              data={
-                data
-                  .filter(function (item) {
-                    return item.categories_type === id_Category();
-                  })
-                  .slice(0, end)
-                // .concat(data1)
-              }
+              data={data
+                .filter(function (item) {
+                  console.log('category' + item.name);
+                  return item.categories_type === id_Category();
+                })
+                .slice(0, end)}
               renderItem={({ item }) => <RenderItemCategory data={item} />}
-              keyExtractor={(item1) => item1._id}
+              keyExtractor={(item) => item._id}
               onEndReached={() => {
-                // setdata1(data1.concat(data1));
-                setEnd(end + 1);
-                // setTimeLoad();
+                setEnd(end + 3);
               }}
               onEndReachedThreshold={0.1}
               ListFooterComponent={
-                // !isLoaddingItemCategory ? (
-                //   <View style={{ marginBottom: 100, marginHorizontal: 20 }}>
-                //     <ActivityIndicator size={30} />
-                //   </View>
-                // ) : (
-                //   <View style={{ marginRight: -100 }}></View>
-                // )
                 <Pressable
                   style={{
                     width: 150,
@@ -185,10 +148,10 @@ const FlatListProductCategory = (props: Props) => {
                   borderColor={'gray.300'}
                   backgroundColor={'gray.100'}
                 >
-                  <Text marginRight={2} variant={'button'}>
+                  <Text marginRight={2} variant={'button'} key={1}>
                     See All
                   </Text>
-                  <Icons.ArrowRight fontSize={24} stroke={'black'} />
+                  <Icons.ArrowRight fontSize={24} stroke={'black'} key={2} />
                 </Pressable>
               }
             />

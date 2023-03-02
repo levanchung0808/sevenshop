@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 100,
     height: 30,
-    lineHeight: 18,
+    lineHeight: 21,
   },
 });
 export default styles;

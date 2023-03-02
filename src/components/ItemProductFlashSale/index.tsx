@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, Image, Pressable } from 'native-base';
+import { formatCurrency } from 'react-native-format-currency';
 import styles from './styles';
 
 type Props = {
@@ -26,7 +27,7 @@ const ItemProductFlashSale = (props: Props) => {
             {price}đ
           </Text>
           <Text color="primary.600" fontSize={16}>
-            {price}đ
+            {formatCurrency({ amount: price, code: 'VND' }).slice(0, 1)}
           </Text>
         </View>
       </View>

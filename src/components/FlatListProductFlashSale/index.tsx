@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, FlatList } from 'native-base';
 import ItemProductFlashSale from 'components/ItemProductFlashSale';
-import { DATA, Item } from '../../mocks';
+import { GetProductSuccessData } from 'interfaces/Auth';
 import styles from './styles';
 
-type Props = object;
+type Props = {
+  data: GetProductSuccessData[];
+};
 
 const FlatListProductFlashSale = (props: Props) => {
+  const { data } = props;
   const [hour, setHour] = useState(2);
   const [minute, setMinute] = useState(2);
   const [second, setSecond] = useState(5);
@@ -57,12 +60,14 @@ const FlatListProductFlashSale = (props: Props) => {
 
     return () => clearInterval(myRef.current);
   }, [second]);
-  const RenderItemFlashSale = ({ data }: { data: Item }) => {
+  const RenderItemFlashSale = ({ data }: { data: GetProductSuccessData }) => {
     return (
       <ItemProductFlashSale
         onPress={() => alert('item nè')}
         name={data.name}
-        image={data.image}
+        image={
+          'https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-fair-isle-stripes-nylon-tracksuit--HOY21WZED900_PM2_Front%20view.png?wid=656&hei=656'
+        }
         price={data.price}
       />
     );
@@ -78,9 +83,9 @@ const FlatListProductFlashSale = (props: Props) => {
             style={styles.textTime}
             color="primary.600"
             borderColor="primary.600"
-            fontStyle="-moz-initial"
             textAlign="center"
             variant={'body1'}
+            fontWeight={'bold'}
           >
             {timeBar()}
           </Text>
@@ -92,10 +97,11 @@ const FlatListProductFlashSale = (props: Props) => {
         showsHorizontalScrollIndicator={false}
         horizontal
         contentContainerStyle={styles.flashListFlashSale}
-        data={DATA}
+        data={data}
         renderItem={({ item }) => <RenderItemFlashSale data={item} />}
-        keyExtractor={(item1) => item1.id}
+        keyExtractor={(item1) => item1._id}
         onEndReached={() => console.log('load ne')}
+        onEndReachedThreshold={0.5}
       />
     </View>
   );

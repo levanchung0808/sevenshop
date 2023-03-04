@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 // import { useNavigation } from '@react-navigation/native';
-import { ScrollView, View, FlatList } from 'native-base';
+import { ScrollView, View, FlatList, Pressable, Text } from 'native-base';
+// import { ActivityIndicator } from 'react-native';
+import * as Icons from 'react-native-feather';
 import * as Progress from 'react-native-progress';
 import ButtonCategory from 'components/ButtonCategory';
 import ItemProductCategory from 'components/ItemProductCategory';
 import { GetProductSuccessData } from 'interfaces/Auth';
-// import { AppNavigationProp } from 'providers/navigation/types';
 import styles from './styles';
 
 type Props = {
   data: GetProductSuccessData[];
 };
 const FlatListProductCategory = (props: Props) => {
-  // const navigation = useNavigation<AppNavigationProp>();
   const { data } = props;
   const [ItemSelected, setItemSelected] = useState([
     {
@@ -53,6 +53,7 @@ const FlatListProductCategory = (props: Props) => {
   ]);
 
   const [progressEnable, setProgressEnable] = useState(true);
+  const [end, setEnd] = useState(3);
 
   const id_Category: any = () => {
     let category;
@@ -61,6 +62,7 @@ const FlatListProductCategory = (props: Props) => {
         return (category = item._id);
       }
     });
+    // console.log('categoryyyyyyyy' + category);
     return category;
   };
   useEffect(() => {
@@ -113,16 +115,48 @@ const FlatListProductCategory = (props: Props) => {
           <Progress.Circle size={30} indeterminate={true} />
         </View>
       ) : (
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          horizontal
-          contentContainerStyle={styles.flashListFlashSale}
-          data={data.filter(function (item) {
-            return item.categories_type === id_Category();
-          })}
-          renderItem={({ item }) => <RenderItemCategory data={item} />}
-          keyExtractor={(item1) => item1._id}
-        />
+        <View style={{ flexDirection: 'row' }}>
+          <ScrollView>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              contentContainerStyle={styles.flashListFlashSale}
+              data={data
+                .filter(function (item) {
+                  console.log('category' + item.name);
+                  return item.categories_type === id_Category();
+                })
+                .slice(0, end)}
+              renderItem={({ item }) => <RenderItemCategory data={item} />}
+              keyExtractor={(item) => item._id}
+              onEndReached={() => {
+                setEnd(end + 3);
+              }}
+              onEndReachedThreshold={0.1}
+              ListFooterComponent={
+                <Pressable
+                  style={{
+                    width: 150,
+                    height: '75%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginBottom: 100,
+                    borderWidth: 0.2,
+                    borderRadius: 2,
+                    flexDirection: 'row',
+                  }}
+                  borderColor={'gray.300'}
+                  backgroundColor={'gray.100'}
+                >
+                  <Text marginRight={2} variant={'button'} key={1}>
+                    See All
+                  </Text>
+                  <Icons.ArrowRight fontSize={24} stroke={'black'} key={2} />
+                </Pressable>
+              }
+            />
+          </ScrollView>
+        </View>
       )}
     </View>
   );

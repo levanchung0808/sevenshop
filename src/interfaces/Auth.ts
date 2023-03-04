@@ -21,9 +21,18 @@ export type RefreshTokenPayload = {
 };
 
 export type GetMeSuccessData = {
-  message: string;
-  access_token: string;
-  refresh_token: string;
+  _id: string;
+  full_name: string;
+  email: string;
+  avatar: string;
+  address: [];
+  phone: string;
+  gender: string;
+  birthday: string;
+  membership_type: string;
+  language: number;
+  product_favourites: [];
+  recent_products: [];
 };
 
 export type GetProductSuccessData = {
@@ -35,6 +44,24 @@ export type GetProductSuccessData = {
   images: [];
   properties_type: [];
   categories_type: number;
+};
+
+export type GetCartSuccessData = {
+  _id: string;
+  total: string;
+  order_type: number;
+  products: [
+    {
+      product_id: string;
+      name: string;
+      price: number;
+      color: number;
+      size: number;
+      quantity: number;
+      image: string;
+      _id: string;
+    }
+  ];
 };
 
 export type GetProductData = {

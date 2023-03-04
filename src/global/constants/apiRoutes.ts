@@ -10,5 +10,8 @@ export const API_ROUTES = {
 
   // product
   getProducts: `/product/`,
+
+  // cart
+  getCart: '/order/',
 };
 export default API_ROUTES;

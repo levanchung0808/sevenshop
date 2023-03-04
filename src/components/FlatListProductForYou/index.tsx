@@ -9,11 +9,13 @@ type Props = {
   data: GetProductSuccessData[];
   footer: any;
   // readChy: Function;
+  size: number;
 };
 
 const FlatListProductForYou = (props: Props) => {
-  const { data, footer } = props;
+  const { data, footer, size } = props;
   const [refreshScroll, setrefreshScroll] = useState(false);
+  // const [size, setSize] = useState(6);
 
   const RenderItemForYou = ({ data }: { data: GetProductSuccessData }) => {
     return (
@@ -45,7 +47,7 @@ const FlatListProductForYou = (props: Props) => {
         <FlatList
           contentContainerStyle={styles.flashList}
           numColumns={2}
-          data={data}
+          data={data.slice(0, size)}
           // scrollEnabled={false}
           renderItem={({ item }) => <RenderItemForYou data={item} />}
           ListFooterComponent={footer}
@@ -59,7 +61,9 @@ const FlatListProductForYou = (props: Props) => {
               colors={['red']}
             />
           }
-          // onEndReached={() => console.log('load ne')}
+          onEndReached={() => {
+            size;
+          }}
           onEndReachedThreshold={0.1}
           nestedScrollEnabled
         />

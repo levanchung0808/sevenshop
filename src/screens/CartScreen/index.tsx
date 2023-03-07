@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, Pressable, Box, FlatList, Image, Button, Modal, Flex } from 'native-base';
 import * as Icon from 'react-native-feather';
+
 // import ButtonCategory from 'components/ButtonCategory';
 const Cart = () => {
   const data = [
@@ -9,8 +10,8 @@ const Cart = () => {
       Name: 'Áo cardigan nữ siêu đẹp ',
       Size: '12',
       Clore: 'White',
-      price1: '200.000',
-      price2: '300.000',
+      price1: '500.000',
+      price2: '200.000',
       amount: '1',
       avatarUrl: 'https://th.bing.com/th/id/OIP.oUOPI9UXvoNDMrG-0D9KTgHaJL?pid=ImgDet&rs=1',
     },
@@ -19,8 +20,8 @@ const Cart = () => {
       Name: 'Áo cardigan nữ siêu đẹp',
       Size: '12',
       Clore: 'White',
-      price1: '200',
-      price2: '300',
+      price1: '500.000',
+      price2: '300.000',
       amount: '1',
       avatarUrl: 'https://th.bing.com/th/id/OIP.oUOPI9UXvoNDMrG-0D9KTgHaJL?pid=ImgDet&rs=1',
     },
@@ -29,8 +30,8 @@ const Cart = () => {
       Name: 'Áo cardigan nữ siêu đẹp',
       Size: '12',
       Clore: 'White',
-      price1: '200',
-      price2: '300',
+      price1: '500.000',
+      price2: '300.000',
       amount: '1',
       avatarUrl: 'https://th.bing.com/th/id/OIP.oUOPI9UXvoNDMrG-0D9KTgHaJL?pid=ImgDet&rs=1',
     },
@@ -39,8 +40,8 @@ const Cart = () => {
       Name: 'Áo cardigan nữ siêu đẹp',
       Size: '12',
       Clore: 'White',
-      price1: '200',
-      price2: '300',
+      price1: '500.000',
+      price2: '300.000',
       amount: '1',
       avatarUrl: 'https://th.bing.com/th/id/OIP.oUOPI9UXvoNDMrG-0D9KTgHaJL?pid=ImgDet&rs=1',
     },
@@ -49,8 +50,8 @@ const Cart = () => {
       Name: 'Áo cardigan nữ siêu đẹp',
       Size: '12',
       Clore: 'White',
-      price1: '200',
-      price2: '300',
+      price1: '500.000',
+      price2: '300.000',
       amount: '1',
       avatarUrl:
         'https://th.bing.com/th/id/R.00182bf023bee72ae785640353db9521?rik=lSDLYCBRazoeVQ&pid=ImgRaw&r=0',
@@ -202,7 +203,7 @@ const Cart = () => {
             height={'100%'}
             justifyContent={'space-between'}
           >
-            <Text fontSize={18} fontWeight={500} fontStyle="normal" fontFamily="heading">
+            <Text fontSize={18} fontWeight={'500'} fontStyle="normal" fontFamily="heading">
               {item.Name}{' '}
             </Text>
 
@@ -217,10 +218,10 @@ const Cart = () => {
               onPress={() => setShowModal(true)}
             >
               <View flexDirection={'row'} ml={2} w={'70%'}>
-                <Text fontSize={14} fontWeight={300} fontStyle="normal" fontFamily="heading">
+                <Text fontSize={14} fontWeight={600} fontStyle="normal" fontFamily="heading">
                   {item.Clore},
                 </Text>
-                <Text ml={1} fontSize={14} fontWeight={300} fontStyle="normal" fontFamily="heading">
+                <Text ml={1} fontSize={14} fontWeight={600} fontStyle="normal" fontFamily="heading">
                   {item.Size}
                 </Text>
               </View>
@@ -233,7 +234,13 @@ const Cart = () => {
                   {item.price1}đ
                 </Text>
 
-                <Text mt={1} fontSize={18} color={'primary.600'} fontWeight={'700'}>
+                <Text
+                  mt={1}
+                  fontSize={18}
+                  color={'primary.600'}
+                  fontWeight={'700'}
+                  fontFamily={'body'}
+                >
                   {item.price2}đ
                 </Text>
               </View>
@@ -301,7 +308,14 @@ const Cart = () => {
         <Text flex={1} fontSize={20} fontWeight={'bold'}>
           Total
         </Text>
-        <Text ml={3} fontSize={20} color={'primary.600'} textAlign={'right'} fontWeight={'bold'}>
+        <Text
+          ml={3}
+          color={'primary.600'}
+          textAlign={'right'}
+          fontWeight={'700'}
+          fontFamily={'body'}
+          variant={'title'}
+        >
           500.000đ
         </Text>
       </View>
@@ -331,11 +345,17 @@ const Cart = () => {
               />
               <Flex marginLeft="2" direction="column" height="100" justifyContent="space-between">
                 <Box>
-                  <Text fontSize={16} fontWeight="extrabold" color="primary.600">
-                    400.000đ
+                  <Text fontSize={18} fontWeight="700" color="primary.600" fontFamily={'heading'}>
+                    200.000đ
                   </Text>
-                  <Text fontSize={14} strikeThrough color="gray.500">
-                    500.000đ
+                  <Text
+                    fontSize={14}
+                    strikeThrough
+                    color="gray.500"
+                    fontFamily={'heading'}
+                    fontWeight="400"
+                  >
+                    250.000đ
                   </Text>
                 </Box>
                 <Flex
@@ -345,7 +365,7 @@ const Cart = () => {
                   alignItems="center"
                 >
                   <Text fontSize={16}>Warehouse: 20</Text>
-                  <Flex direction="row" justifyContent="center" alignItems="center">
+                  <Flex direction="row" ml={5} justifyItems={'center'} alignItems={'center'}>
                     <Pressable onPress={() => setQuantity(quantity--)}>
                       <Icon.Minus stroke="black" width={18} height={18} />
                     </Pressable>
@@ -353,7 +373,7 @@ const Cart = () => {
                       borderWidth="1"
                       borderColor="#C9C9C9"
                       borderRadius="5"
-                      marginX="5"
+                      marginX={2}
                       w="6"
                       h="6"
                       justifyContent="center"

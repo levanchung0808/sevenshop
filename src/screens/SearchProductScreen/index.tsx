@@ -47,7 +47,6 @@ const renderItem1 = ({ item }: any) => {
         alignItems={'center'}
         justifyContent={'center'}
         borderRadius={10}
-        borderWidth={1}
         mt={2}
         backgroundColor={'#D1D1D6'}
       >

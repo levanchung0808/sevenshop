@@ -227,6 +227,7 @@ const ProductScreen = () => {
           borderRadius={7}
           h={31}
           w={71}
+          px={2}
           alignItems={'center'}
           backgroundColor={'#D1D1D6'}
           onPress={() => setShowModal(true)}
@@ -248,7 +249,7 @@ const ProductScreen = () => {
           backgroundColor={'gray.300'}
         >
           <Text variant={'caption'} fontWeight={500} fontFamily={'heading'} textAlign={'center'}>
-            Mới nhất
+            Latest
           </Text>
         </Pressable>
         <Pressable
@@ -262,7 +263,7 @@ const ProductScreen = () => {
           backgroundColor={'gray.300'}
         >
           <Text variant={'caption'} fontWeight={500} fontFamily={'heading'}>
-            Bán chạy
+            Hot Selling
           </Text>
         </Pressable>
         <Pressable
@@ -276,7 +277,7 @@ const ProductScreen = () => {
           backgroundColor={'gray.300'}
         >
           <Text variant={'caption'} fontWeight={500} fontFamily={'heading'}>
-            Liên quan
+            Relate
           </Text>
         </Pressable>
         <Pressable
@@ -291,7 +292,7 @@ const ProductScreen = () => {
           backgroundColor={'gray.300'}
         >
           <Text variant={'caption'} fontWeight={500} fontFamily={'heading'}>
-            Giá
+            Price
           </Text>
           <Icon.ChevronDown stroke="black" width={20} height={20} />
         </Pressable>

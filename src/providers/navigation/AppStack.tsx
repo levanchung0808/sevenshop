@@ -7,7 +7,9 @@ import HomeScreen from 'screens/HomeScreen';
 import LoginScreen from 'screens/LoginScreen';
 import OTPForgotScreen from 'screens/OTPForgotScreen';
 import OTPScreen from 'screens/OTPScreen';
+import ProductFavoritesScreen from 'screens/ProductFavoritesScreen';
 import ProductScreen from 'screens/ProductScreen';
+import ProfileScreen from 'screens/ProfileScreen';
 import RegisterScreen from 'screens/RegisterScreen';
 import SearchKeywordproductsScreen from 'screens/SearchKeywordproducts';
 import SearchProductScreen from 'screens/SearchProductScreen';
@@ -40,6 +42,8 @@ const StackNavigator = () => {
       <Screen name="SearchProduct" component={SearchProductScreen} />
       <Screen name="SearchKeywordproducts" component={SearchKeywordproductsScreen} />
       <Screen name="Product" component={ProductScreen} />
+      <Screen name="ProductFavorites" component={ProductFavoritesScreen} />
+      <Screen name="Profile" component={ProfileScreen} />
     </Navigator>
   );
 };

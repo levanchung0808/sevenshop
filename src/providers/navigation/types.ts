@@ -16,6 +16,7 @@ export type AppStackNavigatorParamList = {
   Product: undefined;
   ProductFavorites: undefined;
   Profile: undefined;
+  AccountSettings: undefined;
 
   Details: { name: string; description: string; price: number; image: string };
   Cart: undefined;

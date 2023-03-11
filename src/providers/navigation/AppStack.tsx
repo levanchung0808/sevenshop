@@ -1,5 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AccountSettingScreen from 'screens/AccountSettingScreen';
 import Cart from 'screens/CartScreen';
 import DetailScreen from 'screens/DetailsScreen';
 import ForgotPasswordScreen from 'screens/FogotPasswordScreen';
@@ -44,6 +45,7 @@ const StackNavigator = () => {
       <Screen name="Product" component={ProductScreen} />
       <Screen name="ProductFavorites" component={ProductFavoritesScreen} />
       <Screen name="Profile" component={ProfileScreen} />
+      <Screen name="AccountSettings" component={AccountSettingScreen} />
     </Navigator>
   );
 };

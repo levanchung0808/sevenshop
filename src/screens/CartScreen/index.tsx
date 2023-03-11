@@ -203,9 +203,7 @@ const Cart = () => {
             height={'100%'}
             justifyContent={'space-between'}
           >
-            <Text fontSize={18} fontWeight={'500'} fontStyle="normal" fontFamily="heading">
-              {item.Name}{' '}
-            </Text>
+            <Text variant={'subtitle1'}>{item.Name}</Text>
 
             <Pressable
               mt={1}
@@ -218,10 +216,8 @@ const Cart = () => {
               onPress={() => setShowModal(true)}
             >
               <View flexDirection={'row'} ml={2} w={'70%'}>
-                <Text fontSize={14} fontWeight={600} fontStyle="normal" fontFamily="heading">
-                  {item.Clore},
-                </Text>
-                <Text ml={1} fontSize={14} fontWeight={600} fontStyle="normal" fontFamily="heading">
+                <Text variant={'caption'}>{item.Clore},</Text>
+                <Text ml={1} variant={'caption'}>
                   {item.Size}
                 </Text>
               </View>
@@ -230,18 +226,12 @@ const Cart = () => {
             </Pressable>
             <View w={'100%'} flexDirection={'row'}>
               <View w={'60%'}>
-                <Text mt={1} fontSize={14} strikeThrough color={'gray.400'}>
-                  {item.price1}đ
+                <Text mt={1} fontSize={12} strikeThrough color={'gray.400'}>
+                  {item.price1} đ
                 </Text>
 
-                <Text
-                  mt={1}
-                  fontSize={18}
-                  color={'primary.600'}
-                  fontWeight={'700'}
-                  fontFamily={'body'}
-                >
-                  {item.price2}đ
+                <Text mt={1} color={'primary.600'} variant={'button'}>
+                  {item.price2} đ
                 </Text>
               </View>
               <View flexDirection={'row'} alignItems={'center'} mt={4}>
@@ -308,14 +298,7 @@ const Cart = () => {
         <Text flex={1} fontSize={20} fontWeight={'bold'}>
           Total
         </Text>
-        <Text
-          ml={3}
-          color={'primary.600'}
-          textAlign={'right'}
-          fontWeight={'700'}
-          fontFamily={'body'}
-          variant={'title'}
-        >
+        <Text ml={3} color={'primary.600'} textAlign={'right'} variant={'title'}>
           500.000đ
         </Text>
       </View>
@@ -455,8 +438,6 @@ const Cart = () => {
                 keyExtractor={(item) => item.title}
               />
             </Flex>
-          </Modal.Body>
-          <Modal.Footer>
             <Pressable
               width="100%"
               height="43"
@@ -472,7 +453,7 @@ const Cart = () => {
                 Confirm
               </Text>
             </Pressable>
-          </Modal.Footer>
+          </Modal.Body>
         </Modal.Content>
       </Modal>
     </View>

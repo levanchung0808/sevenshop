@@ -283,7 +283,9 @@ const Cart = () => {
             <Icon.Check stroke="#FFFFFF" width={20} height={20} />
           </Pressable>
 
-          <Text ml={2}>Select All</Text>
+          <Text ml={3} variant={'body2'}>
+            Select All
+          </Text>
         </View>
         <View w={'5%'}>
           <Icon.Trash2 stroke="#ac1506" width={24} height={24} />

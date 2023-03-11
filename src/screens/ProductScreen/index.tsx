@@ -120,7 +120,7 @@ const data1 = [
 ];
 const renderItem1 = ({ item }: any) => {
   return (
-    <Pressable w={'51%'} h={'100%'}>
+    <Pressable w={'50%'}>
       <View w={197} h={270} borderRadius={1} mt={2}>
         <Image
           alt="Image OTP"
@@ -225,8 +225,8 @@ const ProductScreen = () => {
         <Pressable
           flexDirection={'row'}
           borderRadius={7}
-          h={31}
-          w={71}
+          h={'100%'}
+          w={'20%'}
           px={2}
           alignItems={'center'}
           backgroundColor={'#D1D1D6'}
@@ -305,6 +305,10 @@ const ProductScreen = () => {
           data={data}
           renderItem={renderItem1}
           numColumns={2}
+          columnWrapperStyle={{
+            flexGrow: 1,
+            justifyContent: 'center',
+          }}
         />
       </View>
 
